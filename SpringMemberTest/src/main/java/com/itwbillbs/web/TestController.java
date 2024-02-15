@@ -13,7 +13,7 @@ public class TestController {
 	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 	
 	
-	//http://localhost:8088/web/Test1
+	//http://localhost:8088/Test1
 	@RequestMapping(value = "/Test1", method = RequestMethod.GET)
 	public void Test1() {
 		logger.debug(" Test1() 호출! ");
