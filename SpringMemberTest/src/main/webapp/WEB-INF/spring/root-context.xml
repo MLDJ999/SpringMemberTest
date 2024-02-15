@@ -13,15 +13,17 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	
-	<!-- DataSource : DB연결정보 -->
-	<bean id = "dataSource"
-		  class = "org.springframework.jdbc.datasource.DriverManagerDataSource">	
-		<property name ="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
-		<property name ="url" value="jdbc:log4jdbc:mysql://localhost:3306/springdb"/>
-		<property name ="username" value="root"/>
-		<property name ="password" value="1234"/>  
+	<!-- DataSource : 디비연결정보  -->
+	<bean id="dataSource" 
+	      class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+	      
+	         
+	   <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+	   <property name="url" value="jdbc:log4jdbc:mysql://localhost:3306/springdb"/>
+	   <property name="username" value="root"/>
+	   <property name="password" value="1234"/> 
 	</bean>
-	
+
 	<bean id="sqlSessionFactory" 
 	      class="org.mybatis.spring.SqlSessionFactoryBean">
 	      <property name="dataSource" ref="dataSource" />
@@ -29,13 +31,22 @@
 		            value="classpath:/mybatis-config.xml" /> 
 		  <property name="mapperLocations" 
 		            value="classpath:/mappers/**/*Mapper.xml" />     
-	</bean>
-	
+		            
+	</bean>	
+
 	<bean id="sqlSession" 
 	      class="org.mybatis.spring.SqlSessionTemplate" 
 	      destroy-method="clearCache">
 	     <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
-	</bean>
+	     
+	</bean>	
+	
+	<!-- com.itwbillbs.persistence패키지에 컴포넌트(객체)를 찾기 -->
+	<context:component-scan base-package="com.itwbillbs.persistence" />
+	
+	<!-- com.itwbillbs.service 패키지에 컴포넌트(객체)를 찾기 -->
+	<context:component-scan base-package="com.itwbillbs.service" />
+	
 	
 	
 </beans>

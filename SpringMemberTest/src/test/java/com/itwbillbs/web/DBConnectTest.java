@@ -18,6 +18,7 @@ public class DBConnectTest {
 	private static final String DBPW = "1234";
 	
 	@Test
+	
 	public void connect_test() {
 		try {
 			Class.forName(DRIVER);

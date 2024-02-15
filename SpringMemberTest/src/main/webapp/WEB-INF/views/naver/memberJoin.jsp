@@ -18,7 +18,7 @@
 			이름 : <input type = "text" name = "username"><br>
 			이메일 : <input type = "email" name = "useremail"><br>
 			
-			<input type = "button" value = "회원가입" onclick = "location.href='/naver/login.jsp';">
+			<input type = "submit" value = "회원가입">
 		</form>
 	</fieldset>
 </body>
